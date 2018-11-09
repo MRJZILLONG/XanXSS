@@ -74,12 +74,12 @@ def aggregator(integer):
 	        with open("tmp.txt", "rb") as infile:
 		        infile.read_lines()
 		        for line in infile:
-				    full_list.append(line)
+			    full_list.append(line)
 				    
-				infile.close()
-				os.remove(infile)    
+			infile.close()
+			os.remove(infile)    
 		
-	    except Exception as e:
+		except Exception as e:
 		    print e # Debug print
 	
 	if integer is not 0:		
@@ -92,33 +92,33 @@ def aggregator(integer):
             else:
                 sort_result.append(candidate)
 		
-        seen_set  = set()
-	    duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
+	    seen_set  = set()
+        duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
 	
-	    for items in duplicate:
-		    try:
-		        seen_set.remove(items)
-		    except Exception as e:
-		        continue
-            finally:
-                print e # Debug print
-                pass 
-
+        for items in duplicate:
+	        try:
+	           seen_set.remove(items)
+		   except Exception as e:
+		       continue
+           finally:
+               print e # Debug print
+               pass 
+	
 	else:
 	    for lines in full_list:
 		    sort_result.append(lines)
 	
-	seen_set  = set()
-	duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
+        seen_set  = set()
+        duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
 	
-	for items in duplicate:
-        try:
-			seen_set.remove(items)
-        except Exception as e:
-			continue
-        finally:
-            print e # Debug print
-            pass 
+        for items in duplicate:
+            try:
+                seen_set.remove(items)
+            except Exception as e:
+                continue
+            finally:
+                print e # Debug print
+                pass  
 	    
 	    
 	for payloads in seen_set:
