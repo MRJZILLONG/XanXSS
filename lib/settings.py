@@ -59,8 +59,8 @@ AGGREGATE_SOURCES = [
 
     
 def aggregator(integer):
-        sort_result = []
-        full_list   = []
+    sort_result = []
+    full_list   = []
         
     for url in AGGREGATE_SOURCES:
         try:
@@ -79,7 +79,7 @@ def aggregator(integer):
                 os.remove(infile)    
                 
         except Exception as e:
-                    print e # Debug print
+                print e # Debug print
         
         if integer is not 0:            
             for int in xrange(integer):
@@ -88,8 +88,8 @@ def aggregator(integer):
                 if candidate.startswith("<META"): # remove once supported               
                     integer += 1
                     continue
-         else:
-             sort_result.append(candidate)
+         
+                 sort_result.append(candidate)
                 
             seen_set  = set()
             duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
