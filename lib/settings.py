@@ -81,15 +81,15 @@ def aggregator(integer):
         except Exception as e:
                 print e # Debug print
         
-        if integer is not 0:            
-            for int in xrange(integer):
-                candidate = ""
-                candidate = random.choice(tuple(full_list))
-                if candidate.startswith("<META"): # remove once supported               
-                    integer += 1
-                    continue
+    if integer is not 0:            
+        for int in xrange(integer):
+            candidate = ""
+            candidate = random.choice(tuple(full_list))
+            if candidate.startswith("<META"): # remove once supported               
+                integer += 1
+                continue
          
-                 sort_result.append(candidate)
+            sort_result.append(candidate)
                 
             seen_set  = set()
             duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
@@ -97,9 +97,9 @@ def aggregator(integer):
             for items in duplicate:
                 try:
                     seen_set.remove(items)
-            except Exception as e:
+                except Exception as e:
                     continue
-            finally:
+                finally:
                     print e # Debug print
                     pass 
 
