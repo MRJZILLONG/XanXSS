@@ -67,7 +67,6 @@ def aggregator(integer):
 		    urllib.urlretrieve(url, "tmp.txt")
 		except Exception as e:
 			print e	# Debug print
-			
 			continue			
 			
 	    try:
@@ -79,7 +78,7 @@ def aggregator(integer):
 			infile.close()
 			os.remove(infile)    
 		
-		except Exception as e:
+	    except Exception as e:
 		    print e # Debug print
 	
 	if integer is not 0:		
