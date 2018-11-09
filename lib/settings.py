@@ -123,7 +123,6 @@ def aggregator(integer):
 	    
 	for payloads in seen_set:
 		PAYLOADS.append(payloads)	
-				
 # Gonna need to do some debugging here probably  
 			    
 			    
