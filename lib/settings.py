@@ -59,56 +59,57 @@ AGGREGATE_SOURCES = [
 
     
 def aggregator(integer):
-    sort_result = []
-    full_list   = []
-	
+        sort_result = []
+        full_list   = []
+        
     for url in AGGREGATE_SOURCES:
         try:
             urllib.urlretrieve(url, "tmp.txt")
-	    except Exception as e:
-		    print e	# Debug print
-		    continue			
-			
-	    try:
-	        with open("tmp.txt", "rb") as infile:
-		        infile.read_lines()
-		        for line in infile:
-			    full_list.append(line)
-				    
-			infile.close()
-			os.remove(infile)    
-		
-	    except Exception as e:
-		    print e # Debug print
-	
-	if integer is not 0:		
-	    for int in xrange(integer):
-		    candidate = ""
-		    candidate = random.choice(tuple(full_list))
-		    if candidate.startswith("<META"): # remove once supported
-		        integer += 1
-		        continue
-		    else:
-                sort_result.append(candidate)
-	    seen_set  = set()
-        duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
-	
-        for items in duplicate:
-	        try:
-	            seen_set.remove(items)
-	         except Exception as e:
-                continue
-             finally:
-                 print e # Debug print
-                 pass 
-	
-	else:
-	    for lines in full_list:
-	        sort_result.append(lines)
-	
+        except Exception as e:
+            print e     # Debug print
+            continue                    
+                        
+        try:
+            with open("tmp.txt", "rb") as infile:
+                infile.read_lines()
+                for line in infile:
+                    full_list.append(line)
+                                    
+                infile.close()
+                os.remove(infile)    
+                
+        except Exception as e:
+                    print e # Debug print
+        
+        if integer is not 0:            
+            for int in xrange(integer):
+                candidate = ""
+                candidate = random.choice(tuple(full_list))
+                if candidate.startswith("<META"): # remove once supported               
+                    integer += 1
+                    continue
+         else:
+             sort_result.append(candidate)
+                
+            seen_set  = set()
+            duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
+        
+            for items in duplicate:
+                try:
+                    seen_set.remove(items)
+            except Exception as e:
+                    continue
+            finally:
+                    print e # Debug print
+                    pass 
+
+    else:
+        for lines in full_list:
+            sort_result.append(lines)
+        
         seen_set  = set()
         duplicate = set(x for x in sort_result if x in seen_set or seen_set.append(x))
-	
+        
         for items in duplicate:
             try:
                 seen_set.remove(items)
@@ -116,12 +117,11 @@ def aggregator(integer):
                 continue
             finally:
                 print e # Debug print
-                pass  
-	    
-	    
-	for payloads in seen_set:
-	    PAYLOADS.append(payloads)	
-# Gonna need to do some debugging here probably  
+                pass 
+            
+            
+    for payloads in seen_set:
+        PAYLOADS.append(payloads)       
 			    
 			    
 
