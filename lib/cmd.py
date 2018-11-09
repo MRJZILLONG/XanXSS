@@ -61,6 +61,11 @@ class OptParser(argparse.ArgumentParser):
         parser.add_argument(
             "-F", "--file", dest="payloadFile", metavar="FILE-PATH",
             help="pass a textual file containing payloads one per line, must contain at least 5 payloads"
+         
+        parser.add_argument(
+            "-A", "--aggregate", type=int, dest="AggroPayloads", metavar="AMOUNT"
+            help="aggregate XSS payloads from around the web, you can define the amount by specifying a number"
+                 "enter 0 to gather all available"
         )
         parser.add_argument(
             "-v", "--verbose", action="store_true", dest="runVerbose",
